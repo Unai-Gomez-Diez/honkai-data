@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -33,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,6 +46,28 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //Corrutinas
+    implementation(libs.kotlinx.coroutines.android)
+    //livecycle
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    //gson
+    implementation(libs.gson.serializer)
+    //coil
+    implementation(libs.coil)
+    //skeleton
+    implementation (libs.com.faltenreich.skeletonlayout)
+    //navigation
+    implementation (libs.androidx.navigation.fragment)
+    implementation (libs.androidx.navigation.ui)
+    implementation(libs.nav.fragment.ktx)
+    //ktor
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.kotlinx.serialization.json)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
